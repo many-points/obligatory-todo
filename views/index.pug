@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(href='/styles/main.css', rel='stylesheet')
+  body
+    header.header
+      div.flex-element
+        a.button.btn-top(data-js='button' href='') Left Button
+      div.flex-element
+        a.button.btn-top(data-js='button' href='') Right Button
+    div.grid-container
+      div.grid-element-list
+        ul.list(data-js='list')
+          for item, index in datalist
+            if item !== undefined
+              li(data-index=index)= item
+                if editing
+                  a.button.btn-delete(data-js='delete-button' data-index=index href='') [x]
+        form.input-form(data-js='input-form')
+          input.input(data-js='input' method='post' placeholder='type here' autofocus)
+    script(src='scripts/main.bundle.js')
